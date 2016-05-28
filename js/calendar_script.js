@@ -23,6 +23,7 @@ function checkAuth() {
  */
 function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
+    console.log(authResult);
     loadCalendarApi();
   } else {
     gapi.auth.authorize({
