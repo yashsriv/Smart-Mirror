@@ -95,7 +95,6 @@ function getData(c) {
 }
 function main() {
   if (!identifying) {
-    console.log("Face found & Person not identified");
     if(check() && !found) {
       console.log("Face found & Person not identified");
       var video  = document.getElementById('video');
@@ -107,8 +106,13 @@ function main() {
       getData(canvas);
     } else if(!check() && found) {
       found = false;
+      console.log("Reset");
     } else {
-      console.log("Same person as before");
+      if( found ) {
+        console.log("Same person as before");
+      } else {
+        console.log("Waiting for someone to appear.");
+      }
     }
   }
   setTimeout(main, 2000);
